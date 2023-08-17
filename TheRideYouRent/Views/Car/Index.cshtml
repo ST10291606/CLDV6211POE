@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TheRideYouRent.Models.CarModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cars</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Car</a>
+</p>
+
+@*For the display of the car info*@
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Car No</th>
+            <th>Car Make</th>
+            <th>Car Model</th>
+            <th>Car Body Type</th>
+            <th>Kilometres Travelled</th>
+            <th>Service Kilometres</th>
+            <th>Available</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cust in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => cust.carNo)</td>
+                <td>@Html.DisplayFor(modelItem => cust.carMake)</td>
+                <td>@Html.DisplayFor(modelItem => cust.carModel)</td>
+                <td>@Html.DisplayFor(modelItem => cust.carBodyType)</td>
+                <td>@Html.DisplayFor(modelItem => cust.kilometresTravelled)</td>
+                <td>@Html.DisplayFor(modelItem => cust.serviceKilometres)</td>
+                <td>@Html.DisplayFor(modelItem => cust.available)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@cust.carNo" class="btn btn-warning">Edit</a>
+                    
+                    <a asp-action="Delete" asp-route-id="@cust.carNo" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

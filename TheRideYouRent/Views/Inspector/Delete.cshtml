@@ -1,0 +1,39 @@
+﻿@model TheRideYouRent.Models.InspectorModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center">Delete Inspector</h3>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+
+                    <ul>
+                        <li>Inspector No: @Html.DisplayFor(model => model.inspectorNo)</li>
+                        <li>Name: @Html.DisplayFor(model => model.name)</li>
+                        <li>Surname: @Html.DisplayFor(model => model.surname)</li>
+                        <li>Email: @Html.DisplayFor(model => model.email)</li>
+                        <li>Mobile No: @Html.DisplayFor(model => model.mobileNo)</li>
+                        
+
+                    </ul>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="inspectorNo" />
+
+                        <div>
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                            <a asp-action="Index" class="btn btn-warning">Cancel</a>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+</div>

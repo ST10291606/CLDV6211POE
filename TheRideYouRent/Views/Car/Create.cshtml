@@ -1,0 +1,71 @@
+﻿@model TheRideYouRent.Models.CarModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Insert New Car</h2>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group">
+                            <label asp-for="carNo" class="control-label"></label>
+                            <input asp-for="carNo" class="form-control" />
+                            <span asp-validation-for="carNo" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="carMake" class="control-label"></label>
+                            <input asp-for="carMake" class="form-control" />
+                            <span asp-validation-for="carMake" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="carModel" class="control-label"></label>
+                            <input asp-for="carModel" class="form-control" />
+                            <span asp-validation-for="carModel" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="carBodyType" class="control-label"></label>
+                            <input asp-for="carBodyType" class="form-control" />
+                            <span asp-validation-for="carBodyType" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="kilometresTravelled" class="control-label"></label>
+                            <input asp-for="kilometresTravelled" class="form-control" />
+                            <span asp-validation-for="kilometresTravelled" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="serviceKilometres" class="control-label"></label>
+                            <input asp-for="serviceKilometres" class="form-control" />
+                            <span asp-validation-for="serviceKilometres" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="available" class="control-label"></label>
+                            <input asp-for="available" class="form-control" />
+                            <span asp-validation-for="available" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-success" />
+                            <a asp-action="Index" class="btn btn-warning">Cancel</a>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{ 
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

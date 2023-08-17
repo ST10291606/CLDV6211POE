@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TheRideYouRent.Models.ReturnCarModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Returns</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add new ReturnCar</a>
+</p>
+
+@*For the display of the Return info*@
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Return Car ID</th>
+            <th>Return Date</th>
+            <th>Elapsed Date</th>
+            <th>Car Number</th>
+            <th>Driver ID</th>
+            <th>Inspector Number</th>
+            <th>Fine ID</th>
+            <th>Fine Amount</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => emp.returnCarID)</td>
+                <td>@Html.DisplayFor(modelItem => emp.returnDate)</td>
+                <td>@Html.DisplayFor(modelItem => emp.elapsedDate)</td>
+                <td>@Html.DisplayFor(modelItem => emp.carNo)</td>
+                <td>@Html.DisplayFor(modelItem => emp.driverID)</td>
+                <td>@Html.DisplayFor(modelItem => emp.inspectorNo)</td>
+                <td>@Html.DisplayFor(modelItem => emp.fineID)</td>
+                <td>@Html.DisplayFor(modelItem => emp.fineAmount)</td>
+
+                <td>
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

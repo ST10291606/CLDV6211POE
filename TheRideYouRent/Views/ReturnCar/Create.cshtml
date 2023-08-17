@@ -1,0 +1,75 @@
+﻿@model TheRideYouRent.Models.ReturnCarModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Insert New ReturnCar</h2>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group">
+                            <label asp-for="returnCarID" class="control-label"></label>
+                            <input asp-for="returnCarID" class="form-control" />
+                            <span asp-validation-for="returnCarID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="returnDate" class="control-label"></label>
+                            <input asp-for="returnDate" class="form-control" />
+                            <span asp-validation-for="returnDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="elapsedDate" class="control-label"></label>
+                            <input asp-for="elapsedDate" class="form-control" />
+                            <span asp-validation-for="elapsedDate" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label asp-for="carNo" class="control-label"></label>
+                            <input asp-for="carNo" class="form-control" />
+                            <span asp-validation-for="carNo" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="driverID" class="control-label"></label>
+                            <input asp-for="driverID" class="form-control" />
+                            <span asp-validation-for="driverID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="inspectorNo" class="control-label"></label>
+                            <input asp-for="inspectorNo" class="form-control" />
+                            <span asp-validation-for="inspectorNo" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="fineID" class="control-label"></label>
+                            <input asp-for="fineID" class="form-control" />
+                            <span asp-validation-for="fineID" class="text-danger"></span>
+                        </div>
+                        
+
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-success" />
+                            <a asp-action="Index" class="btn btn-warning">Cancel</a>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TheRideYouRent.Models.RentalModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Rentals</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add new Rental</a>
+</p>
+
+@*For the display of the Rental info*@
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Rental ID</th>
+            <th>Rental Fee</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Car Number</th>
+            <th>Driver ID</th>
+            <th>Inspector Number</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => emp.rentalID)</td>
+                <td>@Html.DisplayFor(modelItem => emp.rentalFee)</td>
+                <td>@Html.DisplayFor(modelItem => emp.startDate)</td>
+                <td>@Html.DisplayFor(modelItem => emp.endDate)</td>
+                <td>@Html.DisplayFor(modelItem => emp.carNo)</td>
+                <td>@Html.DisplayFor(modelItem => emp.driverID)</td>
+                <td>@Html.DisplayFor(modelItem => emp.inspectorNo)</td>
+                <td>
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

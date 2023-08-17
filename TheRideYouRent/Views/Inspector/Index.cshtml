@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TheRideYouRent.Models.InspectorModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Inspectors</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add new Inspector</a>
+</p>
+
+@*For the display of the Inspector info*@
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Inspector Number</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => emp.inspectorNo)</td>
+                <td>@Html.DisplayFor(modelItem => emp.name)</td>
+                <td>@Html.DisplayFor(modelItem => emp.surname)</td>
+                <td>@Html.DisplayFor(modelItem => emp.email)</td>
+                <td>@Html.DisplayFor(modelItem => emp.mobileNo)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@emp.inspectorNo" class="btn btn-warning">Edit</a>
+                    
+                    <a asp-action="Delete" asp-route-id="@emp.inspectorNo" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

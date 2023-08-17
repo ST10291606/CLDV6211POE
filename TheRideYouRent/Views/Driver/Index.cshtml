@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TheRideYouRent.Models.DriverModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Drivers</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add new Driver</a>
+</p>
+
+@*For the display of the Driver info*@
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Driver ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => emp.driverID)</td>
+                <td>@Html.DisplayFor(modelItem => emp.name)</td>
+                <td>@Html.DisplayFor(modelItem => emp.surname)</td>
+                <td>@Html.DisplayFor(modelItem => emp.email)</td>
+                <td>@Html.DisplayFor(modelItem => emp.mobileNo)</td>
+                <td>@Html.DisplayFor(modelItem => emp.address)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@emp.driverID" class="btn btn-warning">Edit</a>
+                    
+                    <a asp-action="Delete" asp-route-id="@emp.driverID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
